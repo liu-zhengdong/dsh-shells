@@ -1,0 +1,8 @@
+# dsh-shells bundle
+# - terminal service + official bash/pwsh backend + agent-facing tools
+# - dsh-shells: extra backends (zsh / cmd / gitbash / pwsh) + panel remote
+- insert:
+  - name: '@deepseek-ai/dsh-terminal'
+  - name: '@deepseek-ai/dsh-terminal-bash'
+  - name: '@deepseek-ai/dsh-tool-terminal'
+  - name: dsh-shells
