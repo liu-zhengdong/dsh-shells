@@ -15,11 +15,17 @@ terminal_send { "id": "...", "stdin": "htop\n", "wait": "stdin_read" }
 terminal_read { "id": "..." }
 ```
 
-## 安装（本地 link）
+## 安装
 
+```bash
+# 从 GitHub
+dsh plugin --profile <profile> add github:liu-zhengdong/dsh-shells
+
+# 本地 checkout（开发用）
+dsh plugin --profile <profile> add /abs/path/to/dsh-shells
 ```
-dsh plugin link ~/MyCodeBase/repo/dsh-shells --profile web
-```
+
+无需构建：包直接发布 `src/` 下的 JS。
 
 组合层（cordis.patch.yml）挂载：`dsh-terminal` + `dsh-terminal-bash` + `@deepseek-ai/dsh-tool-terminal` + `dsh-shells`。
 
