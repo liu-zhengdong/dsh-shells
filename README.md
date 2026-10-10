@@ -27,6 +27,10 @@ dsh plugin --profile <profile> add /abs/path/to/dsh-shells
 
 无需构建：包直接发布 `src/` 下的 JS。
 
+依赖安装后如报 `failed to import`，检查 `@deepseek-ai/schemastery` 是否装上——
+它是本插件的普通依赖，但在 `autoInstallPeers: false` 的 profile 里，若它被写成
+peer 就没人会装。装了很多插件的 profile 可能因为别的插件顺手装过它而看不出问题。
+
 组合层（cordis.patch.yml）挂载：`dsh-terminal` + `dsh-terminal-bash` + `@deepseek-ai/dsh-tool-terminal` + `dsh-shells`。
 
 ## 实现要点
