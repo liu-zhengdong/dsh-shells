@@ -13,7 +13,7 @@
 
 import z from "@deepseek-ai/schemastery";
 import { existsSync } from "node:fs";
-import { BashTerminalBackend } from "@deepseek-ai/dsh-terminal-bash";
+import { BashTerminalBackend, Config as backendConfig } from "@deepseek-ai/dsh-terminal-bash";
 import { registerPanelRemote } from "./panel-remote.js";
 
 export const name = "dsh-shells";
@@ -47,7 +47,11 @@ function log(text) {
 
 /** 通用 shell 数值配置（从我们的 Config 提取官方 session 参数）。 */
 function sessionConfig(config, extra) {
-  return {
+  // 官方 Config 带一批本插件不暴露的 grace 字段（disposeGraceMs 等）。官方 apply()
+  // 会先过一遍 Config 补默认值，我们直接 new BashTerminalBackend 不会，所以这里自己补：
+  // disposeGraceMs 缺失会让 PTY 清理的宽限期变成 NaN，close() 直接抛
+  // "PTY cleanup failed"；handoffGraceMs 缺失会让就绪判定永远不按 idle 收敛。
+  return backendConfig({
     rows: config.rows,
     cols: config.cols,
     scrollbackLines: config.scrollbackLines,
@@ -58,7 +62,7 @@ function sessionConfig(config, extra) {
     idleSilenceMs: config.idleSilenceMs,
     timeoutMs: config.timeoutMs,
     ...extra,
-  };
+  });
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "dsh-shells",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Persistent cross-platform background shells for the DeepSeek Harness agent: bash/zsh on POSIX, cmd/gitbash/pwsh on Windows, with a sidebar panel to watch the PTY streams.",
   "type": "module",
   "main": "src/index.js",
