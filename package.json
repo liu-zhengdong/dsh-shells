@@ -1,6 +1,6 @@
 {
   "name": "dsh-shells",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Persistent cross-platform background shells for the DeepSeek Harness agent: bash/zsh on POSIX, cmd/gitbash/pwsh on Windows, with a sidebar panel to watch the PTY streams.",
   "type": "module",
   "main": "src/index.js",
@@ -35,9 +35,9 @@
     "shell"
   ],
   "dependencies": {
-    "@deepseek-ai/dsh-tool-terminal": "0.2.0-rc.2",
-    "@deepseek-ai/dsh-terminal": "0.2.0-rc.2",
-    "@deepseek-ai/dsh-terminal-bash": "0.2.0-rc.2",
+    "@deepseek-ai/dsh-tool-terminal": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-terminal": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-terminal-bash": "0.2.1-rc.2",
     "@deepseek-ai/schemastery": "~3.18.4"
   },
   "license": "MIT"
